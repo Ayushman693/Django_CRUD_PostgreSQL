@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+    <title>CRUD Operation With PostgreSQL</title>
+</head>
+<body>
+    <center>
+        <h1>Insert record into PostgreSQL</h1>
+        <h3> Django Learning </h3>
+        <hr/>
+        <form method="POST">
+            {% csrf_token %}
+        <table border='1'>
+            <tr>
+                <td>Employee Name</td>
+                <td><input type ="text" placeholder = "Enter Employee Name..." name = "empname"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type ="text" placeholder = "Enter Email..." name = "email"></td>
+            </tr>
+            <tr>
+                <td>Occupation</td>
+                <td><Select name = "occupation">
+                    <option selected disabled = true> -- Select Occupation -- </option>
+                    <option> Programmer </option>
+                    <option> HR </option>
+                    <option> Sales Manger </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Salary</td>
+                <td><input type ="text" placeholder = "Salary..." name = "salary"></td>
+            </tr>
+            <tr>
+                <td>Employee Gender</td>
+                <td><input type ="radio" name = "gender" value = "M">Male | 
+                    <input type ="radio" name = "gender" value = "F">Female</td>
+            </tr>
+            <tr>
+                <td><input type="submit" value= "Insert">
+                <td>
+                    {%if messages%}
+                    {%for mess in messages%}
+                    <b style="color: green;">{{mess}}</br>
+                    {% endfor %}
+                    {%endif%}
+                </td>
+            </tr>
+        </table>
+        <a href = "{% url 'showemp' %}"> Home Page</a>
+        </form>
+    </center>
+</body>
+</html>                
